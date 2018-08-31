@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+        position : absolute;
+        right : 10px;
+        top : 5px
+        }
+
+    </style>
+</head>
+<body>
+
+
+<div>
+
+<button type="button" onclick="location.href='{% url 'log' %}'">Logout</button>
+    </div>
+Welcome {{e}}
+<br><br>
+{% for time,dat,work in comb_lis %}
+
+Date: {{dat}} &nbsp;Work: <a href="/post_check/?z={{time}}"  >{{work}}</a>
+<br>
+
+{% endfor %}
+
+</body>
+</html>
