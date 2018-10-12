@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+        position : absolute;
+        right : 10px;
+        top : 5px
+        }
+
+    </style>
+</head>
+<body>
+
+
+<div>
+<form method="get" action="/check" id="s">
+    {% csrf_token %}
+
+    <input type="text" placeholder="search..." name="search">
+    <input type="hidden" value="{{uid}}" >
+    <button type="submit" onclick="location.href='/check/?uid={{uid}}'" form="s">Go</button>
+<button type="button" onclick="location.href='{% url 'log' %}'">Logout</button>
+    </form></div>
+Welcome {{e}}
+<br><br>
+{% for time,dat,work in comb_lis %}
+
+Date: {{dat}} &nbsp;Work: <a href="/post_check/?z={{time}}"  >{{work}}</a>
+<br>
+
+{% endfor %}
+
+</body>
+</html>
